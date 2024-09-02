@@ -1,0 +1,24 @@
+class Solution:
+    def largestSumAfterKNegations(self, nums: List[int], k: int) -> int:
+        nums.sort()
+
+        negative = len([1 for x in nums if x < 0])
+        print(negative)
+
+        for i in range(min(negative, k)):
+            nums[i] = nums[i]*-1
+            k -= 1
+        
+        print(nums)
+        if negative:
+           nums.sort()
+           print(nums)
+
+        for i in range(k):
+            nums[0] = nums[0]*-1
+        
+        return sum(nums)
+
+        
+
+
